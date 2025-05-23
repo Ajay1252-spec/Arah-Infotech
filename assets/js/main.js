@@ -192,3 +192,20 @@
   window.addEventListener("load", initSwiper);
 
 })();
+
+// Newsletter 
+document.getElementById("emailForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+
+    await fetch("https://script.google.com/macros/s/AKfycbyhAhwu2Rr7THNLl_q5Au8qNr7iobQNuNXA9GEPYM05tXXq6EiRkSdstNEE_0AkD16OYg/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: "email=" + encodeURIComponent(email),
+    });
+
+    alert("Thank you! Your email has been saved.😻");
+    e.target.reset();
+  });

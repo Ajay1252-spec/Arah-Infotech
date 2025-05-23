@@ -663,7 +663,7 @@ h6 {
   visibility: hidden;
   opacity: 0;
   right: 15px;
-  bottom: 15px;
+  bottom: 130px;
   z-index: 99999;
   background-color: var(--accent-color);
   width: 40px;
@@ -907,7 +907,7 @@ section,
   background: color-mix(in srgb, var(--default-color), transparent 90%);
   border-radius: 50px;
   color: var(--contrast-color);
-  transition: 0.3s;
+  transition: 0.1s;
   width: 54px;
   height: 54px;
   display: flex;
@@ -917,7 +917,7 @@ section,
 
 .hero .carousel-control-prev,
 .hero .carousel-control-next {
-  transition: 0.3s;
+  transition: 0.1s;
   opacity: 0.5;
 }
 
@@ -948,7 +948,7 @@ section,
   height: 12px;
   border-radius: 50px;
   opacity: 0.6;
-  transition: 0.3s;
+  transition: 0.1s;
 }
 
 .hero .carousel-indicators li.active {
