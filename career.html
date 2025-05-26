@@ -51,15 +51,254 @@
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
+  
+  </div>
+ <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff;
+      margin: 0;
+      padding: 0;
+    }
+    .career-section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+      opacity: 0;
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+    .career-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .job-listing {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .job-listing:hover {
+      animation: shake 0.3s;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-2px); }
+      50% { transform: translateX(2px); }
+      75% { transform: translateX(-2px); }
+    }
+    .job-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .job-desc, .apply-form {
+      display: none;
+      margin-top: 10px;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+    .delete-btn i {
+      pointer-events: none;
+    }
+    .apply-form {
+      background: #eef;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .apply-form input {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .apply-form button {
+      background: green;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .notification {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .job-actions {
+      margin-top: 10px;
+    }
+    .job-actions button {
+      margin-right: 10px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .job-actions button:hover {
+      background-color: yellow;
+      color: black;
+    }
+    #filterInput {
+      margin-bottom: 20px;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+  </style>
 
-      
-
-    </div>
   </header>
 
   <main class="main">
 
+ <section class="career-section">
+    <div class="career-header">
+      <h2>Join Our Team</h2>
+      <p>Explore exciting opportunities at Arah Infotech.</p>
+      <input type="text" id="filterInput" onkeyup="filterJobs()" placeholder="Filter jobs by title..." />
+    </div>
 
+    <div id="jobContainer">
+      <!-- Job 1 -->
+      <div class="job-listing">
+        <button class="delete-btn" onclick="deleteJob(this)"><i class="fas fa-trash"></i></button>
+        <div class="job-title">Frontend Developer</div>
+        <div class="job-actions">
+          <button onclick="toggleDescription(this)">Job Description</button>
+          <button onclick="showApplyForm(this)">Apply</button>
+        </div>
+        <div class="job-desc">
+          <p>Experience with HTML, CSS, JavaScript, and React. Strong UI/UX skills.</p>
+        </div>
+        <div class="apply-form">
+          <input type="text" placeholder="Full Name" />
+          <input type="text" placeholder="Contact Number" />
+          <input type="email" placeholder="Gmail" />
+          <input type="text" placeholder="Experience (in years)" />
+          <input type="text" placeholder="Current CTC" />
+          <input type="text" placeholder="Expected CTC" />
+          <input type="text" placeholder="Notice Period" />
+          <input type="file" />
+          <button onclick="submitApplication(this)">Submit</button>
+          <div class="notification">Your Profile Submitted Successfully</div>
+        </div>
+      </div>
+
+      <!-- Job 2 -->
+      <div class="job-listing">
+        <button class="delete-btn" onclick="deleteJob(this)"><i class="fas fa-trash"></i></button>
+        <div class="job-title">Backend Developer</div>
+        <div class="job-actions">
+          <button onclick="toggleDescription(this)">Job Description</button>
+          <button onclick="showApplyForm(this)">Apply</button>
+        </div>
+        <div class="job-desc">
+          <p>Strong experience in Node.js, Express, MongoDB. RESTful API design.</p>
+        </div>
+        <div class="apply-form">
+          <input type="text" placeholder="Full Name" />
+          <input type="text" placeholder="Contact Number" />
+          <input type="email" placeholder="Gmail" />
+          <input type="text" placeholder="Experience (in years)" />
+          <input type="text" placeholder="Current CTC" />
+          <input type="text" placeholder="Expected CTC" />
+          <input type="text" placeholder="Notice Period" />
+          <input type="file" />
+          <button onclick="submitApplication(this)">Submit</button>
+          <div class="notification">Your Profile Submitted Successfully</div>
+        </div>
+      </div>
+
+      <!-- Job 3 -->
+      <div class="job-listing">
+        <button class="delete-btn" onclick="deleteJob(this)"><i class="fas fa-trash"></i></button>
+        <div class="job-title">Software Tester</div>
+        <div class="job-actions">
+          <button onclick="toggleDescription(this)">Job Description</button>
+          <button onclick="showApplyForm(this)">Apply</button>
+        </div>
+        <div class="job-desc">
+          <p>Knowledge of test case design, automation, bug tracking tools, and Selenium.</p>
+        </div>
+        <div class="apply-form">
+          <input type="text" placeholder="Full Name" />
+          <input type="text" placeholder="Contact Number" />
+          <input type="email" placeholder="Gmail" />
+          <input type="text" placeholder="Experience (in years)" />
+          <input type="text" placeholder="Current CTC" />
+          <input type="text" placeholder="Expected CTC" />
+          <input type="text" placeholder="Notice Period" />
+          <input type="file" />
+          <button onclick="submitApplication(this)">Submit</button>
+          <div class="notification">Your Profile Submitted Successfully</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script>
+    function toggleDescription(btn) {
+      const jobListing = btn.closest('.job-listing');
+      const desc = jobListing.querySelector('.job-desc');
+      desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function showApplyForm(btn) {
+      const jobListing = btn.closest('.job-listing');
+      const form = jobListing.querySelector('.apply-form');
+      form.style.display = form.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function submitApplication(button) {
+      const notification = button.nextElementSibling;
+      notification.style.display = 'block';
+      setTimeout(() => {
+        notification.style.display = 'none';
+        const form = button.closest('.apply-form');
+        form.style.display = 'none';
+        form.querySelectorAll('input').forEach(input => input.value = '');
+      }, 2500);
+    }
+
+    function deleteJob(button) {
+      const job = button.closest('.job-listing');
+      job.remove();
+    }
+
+    function filterJobs() {
+      const filter = document.getElementById('filterInput').value.toLowerCase();
+      const jobListings = document.querySelectorAll('.job-listing');
+      jobListings.forEach(job => {
+        const title = job.querySelector('.job-title').textContent.toLowerCase();
+        job.style.display = title.includes(filter) ? '' : 'none';
+      });
+    }
+  </script>
    
 
   </main>

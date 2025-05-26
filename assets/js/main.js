@@ -46,6 +46,44 @@
 
   });
 
+  // function toggleDescription(btn) {
+  //     const jobListing = btn.closest('.job-listing');
+  //     const desc = jobListing.querySelector('.job-desc');
+  //     desc.style.display = desc.style.display === 'block' ? 'none' : 'block';
+  //   }
+
+  //   function showApplyForm(btn) {
+  //     const jobListing = btn.closest('.job-listing');
+  //     const form = jobListing.querySelector('.apply-form');
+  //     form.style.display = form.style.display === 'block' ? 'none' : 'block';
+  //   }
+
+  //   function submitApplication(button) {
+  //     const notification = button.nextElementSibling;
+  //     notification.style.display = 'block';
+  //     setTimeout(() => {
+  //       notification.style.display = 'none';
+  //       const form = button.closest('.apply-form');
+  //       form.style.display = 'none';
+  //       form.querySelectorAll('input').forEach(input => input.value = '');
+  //     }, 2500);
+  //   }
+
+  //   function deleteJob(button) {
+  //     const job = button.closest('.job-listing');
+  //     job.remove();
+  //   }
+
+  //   function filterJobs() {
+  //     const filter = document.getElementById('filterInput').value.toLowerCase();
+  //     const jobListings = document.querySelectorAll('.job-listing');
+  //     jobListings.forEach(job => {
+  //       const title = job.querySelector('.job-title').textContent.toLowerCase();
+  //       job.style.display = title.includes(filter) ? '' : 'none';
+  //     });
+  //   }
+
+
   /**
    * Toggle mobile nav dropdowns
    */

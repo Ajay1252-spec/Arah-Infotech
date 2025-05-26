@@ -1190,6 +1190,105 @@ section,
 }
 
 /*--------------------------------------------------------------
+# Career Section
+--------------------------------------------------------------*/
+
+
+/* .career-section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .career-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .job-listing {
+      background: #f9f9f9;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+      position: relative;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .job-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    .job-desc, .apply-form {
+      display: none;
+      margin-top: 10px;
+    }
+    .delete-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: red;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+    }
+    .apply-form {
+      background: #eef;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    .apply-form input {
+      width: 100%;
+      padding: 8px;
+      margin: 5px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    .apply-form button {
+      background: green;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+    .notification {
+      display: none;
+      background: #d4edda;
+      color: #155724;
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .job-actions {
+      margin-top: 10px;
+    }
+    .job-actions button {
+      margin-right: 10px;
+      background-color: #007bff;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .job-actions button:hover {
+      background-color: yellow;
+      color: black;
+    }
+    #filterInput {
+      margin-bottom: 20px;
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    } */
+
+
+/*--------------------------------------------------------------
 # Portfolio Section
 --------------------------------------------------------------*/
 .portfolio .portfolio-filters {
