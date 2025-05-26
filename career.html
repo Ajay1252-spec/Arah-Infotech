@@ -187,7 +187,6 @@
     <div id="jobContainer">
       <!-- Job 1 -->
       <div class="job-listing">
-        <button class="delete-btn" onclick="deleteJob(this)"><i class="fas fa-trash"></i></button>
         <div class="job-title">Frontend Developer</div>
         <div class="job-actions">
           <button onclick="toggleDescription(this)">Job Description</button>
@@ -212,7 +211,6 @@
 
       <!-- Job 2 -->
       <div class="job-listing">
-        <button class="delete-btn" onclick="deleteJob(this)"><i class="fas fa-trash"></i></button>
         <div class="job-title">Backend Developer</div>
         <div class="job-actions">
           <button onclick="toggleDescription(this)">Job Description</button>
@@ -237,7 +235,6 @@
 
       <!-- Job 3 -->
       <div class="job-listing">
-        <button class="delete-btn" onclick="deleteJob(this)"><i class="fas fa-trash"></i></button>
         <div class="job-title">Software Tester</div>
         <div class="job-actions">
           <button onclick="toggleDescription(this)">Job Description</button>
@@ -287,10 +284,7 @@
       }, 2500);
     }
 
-    function deleteJob(button) {
-      const job = button.closest('.job-listing');
-      job.remove();
-    }
+   
 
     function filterJobs() {
       const filter = document.getElementById('filterInput').value.toLowerCase();
