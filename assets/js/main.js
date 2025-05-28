@@ -247,3 +247,53 @@ document.getElementById("emailForm").addEventListener("submit", async (e) => {
     alert("Thank you! Your email has been saved.😻");
     e.target.reset();
   });
+
+//Job Form
+
+document.getElementById("careerForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const file = form.resume.files[0];
+
+  const reader = new FileReader();
+  reader.onload = async function () {
+    const base64String = reader.result.split(',')[1];
+
+    const formData = new URLSearchParams();
+    formData.append("fullName", form.fullName.value);
+    formData.append("contactNumber", form.contactNumber.value);
+    formData.append("email", form.email.value);
+    formData.append("experience", form.experience.value);
+    formData.append("currentCTC", form.currentCTC.value);
+    formData.append("expectedCTC", form.expectedCTC.value);
+    formData.append("noticePeriod", form.noticePeriod.value);
+    formData.append("fileBytes", base64String);
+    formData.append("fileName", file.name);
+    formData.append("fileType", file.type);
+
+    try {
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzsxeb9owS5m1AMDEcEl-aMMhP5vo1ouDWcMU0rctwP1EBYOff87QKh4b7YT4oD676bbw/exec", {
+        method: "POST",
+        body: formData
+      });
+      const result = await response.text();
+      alert("Thank you! Your Application has been Submitted.");
+      e.target.reset();
+    } catch (error) {
+      alert("Something went wrong: " + error.message);
+    }
+  };
+  reader.readAsDataURL(file);
+});
+
+
+//Carrer Job List
+  function openForm(jobTitle) {
+      document.getElementById("applyForm").style.display = "block";
+      document.getElementById("jobTitleField").value = jobTitle;
+    }
+    function closeForm() {
+      document.getElementById("applyForm").style.display = "none";
+    }
+
+
