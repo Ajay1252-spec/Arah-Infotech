@@ -1093,7 +1093,8 @@ section,
 }
 
 .about .our-story {
-  font-size: 20px;
+  font-size: 17px;
+  text-align: justify;
   padding: 40px;
   background-color: color-mix(in srgb, var(--default-color), transparent 96%);
 }
