@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Careers | Arah Infotech</title>
+  <title>Arah Infotech</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -26,104 +27,119 @@
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+
+
 </head>
 
-
-<body class="contact-page">
+<body class="index-page">
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center">
 
       <a href="index.html" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <!-- <img src="assets/img/logo.png" alt=""> -->
-         <img src="assets/img/logo.png" alt="logo">
+        <img src="assets/img/logo.png" alt="logo">
         <h1 class="sitename">Arah Infotech</h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html" class="active">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="career.html" class="active">Careers</a></li>
+          <li><a href="career.html">Careers</a></li>
           <li><a href="contact.html">Contact</a></li>
-          
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-  
-  </div>
+
+    </div>
   </header>
-  <!-- Header Close -->
-<body class="bg-gray-100 font-sans">
 
-<div class="max-w-5xl mx-auto px-4 py-10">
-  <h1 class="text-4xl font-bold text-center text-blue-600 mb-6">Careers at Arah Infotech</h1>
-  <p class="text-center text-gray-600 mb-8">Find your next role and apply to be part of our growing team.</p>
+  <main class="main">
 
-  <!-- Search Bar -->
-  <div class="mb-10">
-    <input
-      type="text"
-      id="jobSearch"
-      placeholder="Search by job title..."
-      class="w-full p-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-      onkeyup="filterJobs()"
-    />
-  </div>
+    
 
-  <!-- Jobs -->
-  <div id="jobContainer" class="space-y-10">
+    <!-- About Section -->
+    <section id="about" class="about section">
 
-    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-title="Full Stack Developer">
-      <h2 class="text-2xl font-semibold text-gray-800">Full Stack Developer</h2>
-      <p><strong>Experience:</strong> 2-4 years</p>
-      <p><strong>Skills:</strong> HTML, CSS, JavaScript, React</p>
-      <p><strong>Location:</strong> Remote / Mumbai</p>
-      <button onclick="toggleForm(this, 'Full Stack Developer')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Apply</button>
-    </div>
+      <div class="container">
 
-    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-title="UI/UX Designer">
-      <h2 class="text-2xl font-semibold text-gray-800">UI/UX Designer</h2>
-      <p><strong>Experience:</strong> 2-4 years</p>
-      <p><strong>Skills:</strong> HTML, CSS, JavaScript, React</p>
-      <p><strong>Location:</strong> Remote / Mumbai</p>
-      <button onclick="toggleForm(this, 'UI/UX Designer')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Apply</button>
-    </div>
+        <div class="row position-relative">
 
-    <div class="job-card bg-white p-6 rounded-xl shadow-md" data-title="Cloud Security Engineer">
-      <h2 class="text-2xl font-semibold text-gray-800">Cloud Security Engineer</h2>
-      <p><strong>Experience:</strong> 2-4 years</p>
-      <p><strong>Skills:</strong> HTML, CSS, JavaScript, React</p>
-      <p><strong>Location:</strong> Remote / Mumbai</p>
-      <button onclick="toggleForm(this, 'Cloud Security Engineer')" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Apply</button>
-    </div>
+          <div class="col-lg-7 about-img" data-aos="zoom-out" data-aos-delay="200"><img src="assets/img/about.jpg"></div>
 
-  </div>
+          <div class="col-lg-7" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="inner-title">Web Development</h2>
+            <div class="our-story">
+              <p>we build responsive, high-performing websites that go beyond just aesthetics. Our web development services focus on functionality, speed, scalability, and user experience — ensuring that every project meets modern standards and business goals.<br>
+                    Whether you're starting with a basic landing page, redesigning your corporate website, or building a complex enterprise web portal, we bring the technical expertise and creative vision to make it happen.<br>
+                <div><p><strong>Technologies: </strong>HTML5, CSS3, JavaScript, React, Angular, Vue.js, Laravel, PHP, ASP.NET</p></div><br>
+              
+            </div>
+          </div>
 
-  <!-- Single Reusable Apply Form -->
-  <div id="applyForm" class="hidden bg-white mt-6 p-6 rounded-xl shadow-md border-t pt-6">
-    <form id="careerForm" class="space-y-4">
-      <h2>Apply Now</h2>
-      <input type="hidden" name="Job Title" id="jobTitleField" />
-      <input type="text" name="Full Name" placeholder="Full Name" class="w-full p-2 border rounded" required>
-      <input type="tel" name="Contact Number" placeholder="Contact Number" class="w-full p-2 border rounded" required>
-      <input type="email" name="Gmail" placeholder="Gmail" class="w-full p-2 border rounded" required>
-      <input type="jobtitle" name="Job Title" placeholder="Job Title" class="w-full p-2 border rounded" required>
-      <input type="text" name="Current CTC" placeholder="Current CTC" class="w-full p-2 border rounded" required>
-      <input type="text" name="Expected CTC" placeholder="Expected CTC" class="w-full p-2 border rounded" required>
-      <input type="text" name="Experience" placeholder="Years of Experience" class="w-full p-2 border rounded" required>
-      <input type="text" name="Notice Period" placeholder="Notice Period (in days)" class="w-full p-2 border rounded" required>
-      <input type="file" name="Resume" accept=".pdf,.doc,.docx" class="w-full p-2 border rounded" required>
-      <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Submit Application</button>
-    </form>
-  </div>
-</div>
+        </div>
 
+      </div>
 
-<!-- Footer Start -->
+    </section><!-- /About Section -->
+
+    <section id="services" class="services section light-background">
+
+      <div class="container">
+        <div class="row gy-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+               <h3>What We Offer</h3>
+                <ul>
+                <i class="bi bi-check-circle"></i> <span>Business Websites</span><br>
+                <i class="bi bi-check-circle"></i> <span>Web Portals & Dashboards</span><br>
+                <i class="bi bi-check-circle"></i> <span>Single Page Applications (SPAs)</span><br>
+                <i class="bi bi-check-circle"></i> <span>Progressive Web Apps (PWAs)</span><br>
+                <i class="bi bi-check-circle"></i> <span>CMS-Based Websites</span><br>
+                <i class="bi bi-check-circle"></i> <span>Static & Dynamic Sites</span>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+               <h3>Key Features</h3>
+                <ul>
+                <i class="bi bi-check-circle"></i> <span>Fully Responsive Designs</span><br>
+                <i class="bi bi-check-circle"></i> <span>SEO-Optimized Structure</span><br>
+                <i class="bi bi-check-circle"></i> <span>Cross-Browser Compatibility </span><br>
+                <i class="bi bi-check-circle"></i> <span>Fast Loading Speed</span><br>
+                <i class="bi bi-check-circle"></i> <span>Secure Coding Practices</span><br>
+                <i class="bi bi-check-circle"></i> <span>Custom Integrations</span>
+              </ul>
+            </div>
+          </div>
+
+          <div id="grid3" class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="service-item item-cyan position-relative">
+               <h3>Why Our Clients Trust Us</h3>
+                <ul>
+                <i class="bi bi-check-circle"></i> <span>Transparent development process with milestone tracking</span><br>
+                <i class="bi bi-check-circle"></i> <span>Agile approach with rapid iterations and client feedback</span><br>
+                <i class="bi bi-check-circle"></i> <span>Clear documentation and clean, maintainable code</span><br>
+                <i class="bi bi-check-circle"></i> <span>End-to-end support: from planning to launch and beyond</span><br>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Services Section -->
+
+    
+
+  </main>
+
   <footer id="footer" class="footer dark-background">
 
     <div class="container footer-top">
@@ -171,6 +187,7 @@
             <li><a href="#">Product Management</a></li>
             <li><a href="#">Marketing</a></li>
             <li><a href="#">Graphic Design</a></li>
+            <li><a href="#">UI/UX Design</a></li>
           </ul>
         </div>
 
@@ -186,12 +203,13 @@
       </div>
     </div>
 
-   <div class="container copyright text-center mt-4">
+    <div class="container copyright text-center mt-4">
       <p>© <span>Copyright 2025</span> <strong class="px-1 sitename">Arah Infotech</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
         Designed by <a href="index.html">Arah Infotech</a>
       </div>
     </div>
+
   </footer>
 
   <!-- Scroll Top -->

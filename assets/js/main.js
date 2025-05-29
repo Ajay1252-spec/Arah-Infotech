@@ -83,6 +83,81 @@
   //     });
   //   }
 
+  /**Career Page */
+ document.addEventListener("DOMContentLoaded", () => {
+  let currentFormContainer = null;
+
+  window.toggleForm = function(button, jobTitle) {
+    const form = document.getElementById("applyForm");
+    const jobCard = button.parentElement;
+
+    if (currentFormContainer === jobCard && !form.classList.contains('hidden')) {
+      form.classList.add('hidden');
+      currentFormContainer = null;
+      return;
+    }
+
+    jobCard.insertAdjacentElement("beforeend", form);
+    form.classList.remove("hidden");
+    document.getElementById("jobTitleField").value = jobTitle;
+    currentFormContainer = jobCard;
+  };
+
+  window.filterJobs = function() {
+    const input = document.getElementById("jobSearch").value.toLowerCase();
+    const jobs = document.querySelectorAll(".job-card");
+
+    jobs.forEach(job => {
+      const title = job.getAttribute("data-title").toLowerCase();
+      job.style.display = title.includes(input) ? "block" : "none";
+    });
+  };
+});
+
+// Form Apply
+
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("careerForm");
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const fileInput = document.getElementById("resume");
+    const fileName = fileInput && fileInput.files.length > 0 ? fileInput.files[0].name : "";
+
+    const formData = {
+      fullName: document.getElementById("fullName").value,
+      contactNumber: document.getElementById("contactNumber").value,
+      email: document.getElementById("email").value,
+      jobTitle: document.getElementById("jobTitle").value,
+      currentCTC: document.getElementById("currentCTC").value,
+      expectedCTC: document.getElementById("expectedCTC").value,
+      experience: document.getElementById("experience").value,
+      noticePeriod: document.getElementById("noticePeriod").value,
+      resumeName: fileName
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbyXgAFfrxzAH3bZ0e-a5K8QMighirivhC2240ln_a-E6sobs3GrgIi1Kka69tddXN4i/exec", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(formData)
+    })
+      .then((response) => response.text())
+      .then((data) => {
+        alert("Form submitted successfully!");
+        form.reset();
+      })
+      .catch((error) => {
+        console.error("Error submitting form:", error);
+        alert("Error submitting form. See console for details.");
+      });
+  });
+});
+
+
+
 
   /**
    * Toggle mobile nav dropdowns
