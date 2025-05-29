@@ -105,18 +105,17 @@
 
   <!-- Single Reusable Apply Form -->
   <div id="applyForm" class="hidden bg-white mt-6 p-6 rounded-xl shadow-md border-t pt-6">
-    <form id="careerForm" class="space-y-4">
+    <form id="jobForm" action="/submit" method="post" class="space-y-4">
       <h2>Apply Now</h2>
-      <input type="hidden" name="Job Title" id="jobTitleField" />
-      <input type="text" name="Full Name" placeholder="Full Name" class="w-full p-2 border rounded" required>
-      <input type="tel" name="Contact Number" placeholder="Contact Number" class="w-full p-2 border rounded" required>
-      <input type="email" name="Gmail" placeholder="Gmail" class="w-full p-2 border rounded" required>
-      <input type="jobtitle" name="Job Title" placeholder="Job Title" class="w-full p-2 border rounded" required>
-      <input type="text" name="Current CTC" placeholder="Current CTC" class="w-full p-2 border rounded" required>
-      <input type="text" name="Expected CTC" placeholder="Expected CTC" class="w-full p-2 border rounded" required>
-      <input type="text" name="Experience" placeholder="Years of Experience" class="w-full p-2 border rounded" required>
-      <input type="text" name="Notice Period" placeholder="Notice Period (in days)" class="w-full p-2 border rounded" required>
-      <input type="file" name="Resume" accept=".pdf,.doc,.docx" class="w-full p-2 border rounded" required>
+      <input type="text" name="fullName" placeholder="Full Name" class="w-full p-2 border rounded" required>
+      <input type="tel" name="contact" placeholder="Contact Number" class="w-full p-2 border rounded" required>
+      <input type="email" name="email" placeholder="Gmail" class="w-full p-2 border rounded" required>
+      <input type="text" name="jobTitle" placeholder="Job Title" class="w-full p-2 border rounded" required>
+      <input type="text" name="currentCTC" placeholder="Current CTC" class="w-full p-2 border rounded" required>
+      <input type="text" name="expectedCTC" placeholder="Expected CTC" class="w-full p-2 border rounded" required>
+      <input type="text" name="experience" placeholder="Years of Experience" class="w-full p-2 border rounded" required>
+      <input type="text" name="notice" placeholder="Notice Period (in days)" class="w-full p-2 border rounded" required>
+      <input type="file" id="resume" accept=".pdf,.doc,.docx" required /><br />
       <button type="submit" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Submit Application</button>
     </form>
   </div>

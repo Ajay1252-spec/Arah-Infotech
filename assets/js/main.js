@@ -116,45 +116,61 @@
 
 // Form Apply
 
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("careerForm");
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('jobForm');
+  
+  if (form) {
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
+      const fileInput = document.getElementById('resume');
+      const file = fileInput?.files?.[0];
+      
+      if (!file) {
+        alert("Please select a file before submitting.");
+        return;
+      }
 
-    const fileInput = document.getElementById("resume");
-    const fileName = fileInput && fileInput.files.length > 0 ? fileInput.files[0].name : "";
+      const reader = new FileReader();
 
-    const formData = {
-      fullName: document.getElementById("fullName").value,
-      contactNumber: document.getElementById("contactNumber").value,
-      email: document.getElementById("email").value,
-      jobTitle: document.getElementById("jobTitle").value,
-      currentCTC: document.getElementById("currentCTC").value,
-      expectedCTC: document.getElementById("expectedCTC").value,
-      experience: document.getElementById("experience").value,
-      noticePeriod: document.getElementById("noticePeriod").value,
-      resumeName: fileName
-    };
+      reader.onload = async function () {
+        const base64 = reader.result.split(',')[1]; // Remove data prefix
 
-    fetch("https://script.google.com/macros/s/AKfycbyXgAFfrxzAH3bZ0e-a5K8QMighirivhC2240ln_a-E6sobs3GrgIi1Kka69tddXN4i/exec", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(formData)
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        alert("Form submitted successfully!");
-        form.reset();
-      })
-      .catch((error) => {
-        console.error("Error submitting form:", error);
-        alert("Error submitting form. See console for details.");
-      });
-  });
+        const formData = new URLSearchParams();
+        formData.append("fullName", form.querySelector('input[name="fullName"]').value);
+        formData.append("contact", form.querySelector('input[name="contact"]').value);
+        formData.append("email", form.querySelector('input[name="email"]').value);
+        formData.append("jobTitle", form.querySelector('input[name="jobTitle"]').value);
+        formData.append("currentCTC", form.querySelector('input[name="currentCTC"]').value);
+        formData.append("expectedCTC", form.querySelector('input[name="expectedCTC"]').value);
+        formData.append("experience", form.querySelector('input[name="experience"]').value);
+        formData.append("notice", form.querySelector('input[name="notice"]').value);
+        formData.append("resumeFile", base64);
+        formData.append("mimeType", file.type);
+        formData.append("fileName", file.name);
+
+        try {
+          const response = await fetch("https://script.google.com/macros/s/AKfycbyIvjU8IEPvsDnZRv4P9n6z-rVEKnfkTEoj6UDtsh6RfDzCUEqqcUoTsaBUm_5rWDor/exec", {
+            method: "POST",
+            body: formData,
+          });
+
+          const result = await response.text();
+          alert(result);
+          form.reset();
+        } catch (err) {
+          console.error("Submission failed", err);
+          alert("Submission failed. Please try again.");
+        }
+      };
+
+      reader.readAsDataURL(file);
+    });
+  } else {
+    console.warn('jobForm not found in DOM');
+  }
 });
+
 
 
 
