@@ -3065,6 +3065,7 @@ section,
     width: 100%;
     height: 100%;
     object-fit: cover;
+    padding-bottom: 30px;
 }
 .slider .list .item::after{
     content: '';
@@ -3086,6 +3087,19 @@ section,
     font-size: 48px;
     white-space: nowrap;
 }
+
+.slider .list .item .content-career{
+    position: absolute;
+    top: 22%;
+    right: 20%;
+    text-align: center;
+    width: 500px;
+    max-width: 80%;
+    color: white;
+    font-size: 35px;
+    white-space: nowrap;
+}
+
 .slider .list .item .content p:nth-child(1){
     text-transform: uppercase;
     letter-spacing: 10px;
