@@ -3086,6 +3086,7 @@ section,
     z-index: 1;
     color: white;
     font-size: 48px;
+    white-space: nowrap;
 }
 .slider .list .item .content p:nth-child(1){
     text-transform: uppercase;
