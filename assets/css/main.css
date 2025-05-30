@@ -165,8 +165,8 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
-  margin-right: 8px;
+  max-height: 48px;
+  margin-right: 0px;
 }
 
 .header .logo h1 {
@@ -553,8 +553,8 @@ h6 {
 }
 
 .footer .footer-about .logo img {
-  max-height: 40px;
-  margin-right: 6px;
+  max-height: 45px;
+  margin-right: 0px;
 }
 
 .footer .footer-about .logo span {
@@ -562,7 +562,7 @@ h6 {
   font-weight: 700;
   letter-spacing: 1px;
   font-family: var(--heading-font);
-  color: var(--heading-color);
+  color: var(--accent-color);
 }
 
 .footer .footer-about p {
