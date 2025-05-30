@@ -173,6 +173,81 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
+/* Slider Js*/
+
+document.addEventListener('DOMContentLoaded', function () {
+    let items = document.querySelectorAll('.slider .list .item');
+    let next = document.getElementById('next');
+    let prev = document.getElementById('prev');
+    let thumbnails = document.querySelectorAll('.thumbnail .item');
+
+    let countItem = items.length;
+    let itemActive = 0;
+
+    if (next && prev) { // safe guard to prevent null access
+        next.onclick = function () {
+            itemActive = itemActive + 1;
+            if (itemActive >= countItem) {
+                itemActive = 0;
+            }
+            showSlider();
+        }
+
+        prev.onclick = function () {
+            itemActive = itemActive - 1;
+            if (itemActive < 0) {
+                itemActive = countItem - 1;
+            }
+            showSlider();
+        }
+    }
+
+    function showSlider() {
+        items.forEach((item, index) => {
+            item.classList.remove('active');
+            if (index === itemActive) {
+                item.classList.add('active');
+            }
+        });
+
+        thumbnails.forEach((thumb, index) => {
+            thumb.classList.remove('active');
+            if (index === itemActive) {
+                thumb.classList.add('active');
+            }
+        });
+    }
+});
+
+// auto run slider
+let refreshInterval = setInterval(() => {
+    next.click();
+}, 5000)
+function showSlider(){
+    // remove item active old
+    let itemActiveOld = document.querySelector('.slider .list .item.active');
+    let thumbnailActiveOld = document.querySelector('.thumbnail .item.active');
+    itemActiveOld.classList.remove('active');
+    thumbnailActiveOld.classList.remove('active');
+
+    // active new item
+    items[itemActive].classList.add('active');
+    thumbnails[itemActive].classList.add('active');
+    setPositionThumbnail();
+
+    // clear auto time run slider
+    clearInterval(refreshInterval);
+    refreshInterval = setInterval(() => {
+        next.click();
+    }, 5000)
+}
+function setPositionThumbnail () {
+    let thumbnailActive = document.querySelector('.thumbnail .item.active');
+    let rect = thumbnailActive.getBoundingClientRect();
+    if (rect.left < 0 || rect.right > window.innerWidth) {
+        thumbnailActive.scrollIntoView({ behavior: 'smooth', inline: 'nearest' });
+    }
+}
 
 
   /**
@@ -338,44 +413,6 @@ document.getElementById("emailForm").addEventListener("submit", async (e) => {
     alert("Thank you! Your email has been saved.😻");
     e.target.reset();
   });
-
-//Job Form
-
-document.getElementById("careerForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  const form = e.target;
-  const file = form.resume.files[0];
-
-  const reader = new FileReader();
-  reader.onload = async function () {
-    const base64String = reader.result.split(',')[1];
-
-    const formData = new URLSearchParams();
-    formData.append("fullName", form.fullName.value);
-    formData.append("contactNumber", form.contactNumber.value);
-    formData.append("email", form.email.value);
-    formData.append("experience", form.experience.value);
-    formData.append("currentCTC", form.currentCTC.value);
-    formData.append("expectedCTC", form.expectedCTC.value);
-    formData.append("noticePeriod", form.noticePeriod.value);
-    formData.append("fileBytes", base64String);
-    formData.append("fileName", file.name);
-    formData.append("fileType", file.type);
-
-    try {
-      const response = await fetch("https://script.google.com/macros/s/AKfycbzsxeb9owS5m1AMDEcEl-aMMhP5vo1ouDWcMU0rctwP1EBYOff87QKh4b7YT4oD676bbw/exec", {
-        method: "POST",
-        body: formData
-      });
-      const result = await response.text();
-      alert("Thank you! Your Application has been Submitted.");
-      e.target.reset();
-    } catch (error) {
-      alert("Something went wrong: " + error.message);
-    }
-  };
-  reader.readAsDataURL(file);
-});
 
 
 //Carrer Job List
