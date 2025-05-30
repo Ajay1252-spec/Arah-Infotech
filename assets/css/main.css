@@ -3069,18 +3069,16 @@ section,
 .slider .list .item::after{
     content: '';
     width: 100%;
-    height: 08%;
+    height: 100%;
     position: absolute;
     left: 0;
     bottom: 0;
-    background-image: linear-gradient(
-        to top, var(--heading-color) 05%, transparent
-    );
 }
 .slider .list .item .content{
     position: absolute;
-    left: 10%;
-    top: 20%;
+    top: 50%;
+    right: 40%;
+    text-align: center;
     width: 500px;
     max-width: 80%;
     z-index: 1;
